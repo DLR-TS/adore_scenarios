@@ -22,7 +22,7 @@ make adore-cli
 ~~~
 Then navigate to the catkin workspace demo directory in the adore-cli container, export your display variable and launch the demo:
 ~~~bash
-cd catkin_workspace/src/adore_if_ros_demos
+cd catkin_workspace/src/adore_scenarios
 export DISPLAY=:0
 roslaunch demo001_loadmap.launch
 ~~~
@@ -270,6 +270,6 @@ To start the demo, the following steps need to be performed:
 2. start CARLA by typing "docker compose up carla" in the adore_if_carla directory
 3. start the CARLA-ros-bridge by typing "xhost local:root; docker compose up carla-ros-bridge" in the adore_if_carla directory
 4. start the adore_if_carla applications by typing "docker compose up adore_if_carla" in the adore_if_carla directory
-5. start the [demo014_adore_if_carla.launch](demo014_adore_if_carla.launch) of adore_if_ros_demos
+5. start the [demo014_adore_if_carla.launch](demo014_adore_if_carla.launch) of adore_scenarios
 
 ![ADORe-CARLA-interface](https://github.com/DLR-TS/adore_support/blob/master/demos/demo014.png)
