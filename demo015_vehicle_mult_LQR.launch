@@ -25,7 +25,9 @@
     <param name="simulationID" value="0" type="int" />  
     <include file="demo_vehicle_cfg01.launch"/>
     <include file="demo_plotters.launch"/>
+     <node name="lqr"     pkg="adore_if_ros" type="adore_lqr_platoon_node" launch-prefix="xterm -e "/>
     <node name="spr2mcm"     pkg="adore_if_v2x" type="setpointrequest_to_mcm_node" launch-prefix="xterm -e "/>
+   
     <param name="plotoptions/followMode" value="false" type="bool" />
     <node pkg="rostopic" type="rostopic" name="posereset" args="pub /vehicle0/SIM/ResetVehiclePose geometry_msgs/Pose '{position: {x: 52, y: 0, z: 0},orientation: { z: 1,w: 1}}'"/>
   </group>
@@ -33,7 +35,10 @@
   <group ns="vehicle1">
     <param name="PARAMS/track" value="$(dirname)/tracks/circle50m.xodr" type="str" />
     <param name="simulationID" value="1" type="int" />  
-    <include file="demo_vehicle_cfg02.launch"/>
+    <include file="demo_vehicle_cfg01.launch"/>
+    <node name="lqr"     pkg="adore_if_ros" type="adore_lqr_platoon_node" launch-prefix="xterm -e "/>
+    <node name="spr2mcm"     pkg="adore_if_v2x" type="setpointrequest_to_mcm_node" launch-prefix="xterm -e "/>
+     
     <node pkg="rostopic" type="rostopic" name="posereset" args="pub /vehicle1/SIM/ResetVehiclePose geometry_msgs/Pose '{position: {x: 0, y: -52, z: 0},orientation: { w: 1}}'"/>
   </group>
 </launch>
