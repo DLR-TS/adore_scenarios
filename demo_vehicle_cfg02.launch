@@ -17,7 +17,7 @@
     <include ns="PARAMS" file="$(dirname)/adore_params_vehicle_independent.launch"/>
     <include ns="PARAMS" file="$(dirname)/adore_params_vehicle_fascare.launch"/>
     <param name="PARAMS/navigation/active_plotting_global" value="false" type="bool" />  
-    <node name="vmodel"     pkg="adore_if_ros" type="adore_vehiclemodel_node"/>
+    <node name="vmodel"     pkg="adore_if_ros" type="adore_vehicle_model_node"/>
     <node name="smodel"     pkg="adore_if_ros" type="adore_objectdetectionmodel_node"/>
     <node name="lmap"       pkg="adore_if_ros" type="adore_mapprovider_node" output="screen"/>
     <node name="tracker"    pkg="adore_if_ros" type="adore_feedbackcontroller_node"/>

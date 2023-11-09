@@ -18,7 +18,7 @@
     <include ns="PARAMS" file="$(dirname)/adore_params_vehicle_fascare.launch"/>
     <param name="PARAMS/local_road_map/navigation_active" value="false" type="bool"/>
     <param name="PARAMS/external_ego_measurement_models" value="true" type="bool"/>
-    <node name="vmodel" pkg="adore_if_ros" type="adore_vehiclemodel_node" />
+    <node name="vmodel" pkg="adore_if_ros" type="adore_vehicle_model_node" />
     <node name="odomestimate" pkg="adore_if_ros" type="adore_odometrymodel_node"/>
     <node name="localization" pkg="adore_if_ros" type="adore_localizationmodel_node"/>
 
