@@ -21,11 +21,14 @@
   <node pkg="rostopic" type="rostopic" name="plotstart1" args="pub /plot adore_if_ros_msg/PlotStart &quot;{tag: 'v1', xtopic: '/SIM/utc', ytopic: '/plot/v1', figure: 3, options: 'LineColor=1,0,0'}&quot;"/>
   <!--the leading vehicle-->
   <group ns="vehicle0">
-    <param name="PARAMS/track" value="$(dirname)/tracks/circle50m.xodr" type="str" />
+    <param name="PARAMS/track" value="$(dirname)/tracks/circle50m.xodr,transform" type="str" />
     <param name="PARAMS/UTMZone" value="32" type="int"/>
     <param name="PARAMS/SouthHemi" value="false" type="bool" />
     <param name="simulationID" value="0" type="int" />  
      <param name="v2xStationID" value="10" type="int" /> 
+        <param name="PARAMS/translation_x" value="1000" type="double" />
+        <param name="PARAMS/translation_y" value="1000" type="double" />
+        <param name="PARAMS/translation_z" value="0" type="double" />
     <include file="demo_vehicle_cfg01.launch"/>
     <include file="demo_plotters.launch"/>
 
@@ -35,7 +38,7 @@
 
     <node name="v2xgate" pkg="adore_v2x_sim" type="channel_sim_node"/>
     <param name="plotoptions/followMode" value="false" type="bool" />
-    <node pkg="rostopic" type="rostopic" name="posereset" args="pub /vehicle0/SIM/ResetVehiclePose geometry_msgs/Pose '{position: {x: 52, y: 0, z: 0},orientation: { z: 1,w: 1}}'"/>
+    <node pkg="rostopic" type="rostopic" name="posereset" args="pub /vehicle0/SIM/ResetVehiclePose geometry_msgs/Pose '{position: {x: 1052, y: 1000, z: 0},orientation: { z: 1,w: 1}}'"/>
   </group>
 
   <!--the following vehicle-->
@@ -44,13 +47,16 @@
     <param name="PARAMS/UTMZone" value="32" type="int"/>
     <param name="PARAMS/SouthHemi" value="false" type="bool" />
     <param name="simulationID" value="1" type="int" />  
-     <param name="v2xStationID" value="11" type="int" /> 
+     <param name="v2xStationID" value="11" type="int" />
+     <param name="PARAMS/translation_x" value="1000" type="double" />
+        <param name="PARAMS/translation_y" value="1000" type="double" />
+        <param name="PARAMS/translation_z" value="0" type="double" />
     <include file="demo_vehicle_cfg01.launch"/>
    <!-- <node name="spr2mcm1"     pkg="adore_if_v2x" type="setpointrequest_to_mcm_node" launch-prefix="xterm -e "/>-->
-        <node name="lqr"     pkg="adore_if_ros" type="adore_lqr_platoon_node" launch-prefix="xterm -e "/>
+     <node name="lqr"     pkg="adore_if_ros" type="adore_lqr_platoon_node" launch-prefix="xterm -e "/>
      <node name="mcm2lqr1"     pkg="adore_if_v2x" type="mcm_to_platoon_node" launch-prefix="xterm -e "/>
-      <node name="v2xgate" pkg="adore_v2x_sim" type="channel_sim_node"/>
+     <node name="v2xgate" pkg="adore_v2x_sim" type="channel_sim_node"/>
      
-    <node pkg="rostopic" type="rostopic" name="posereset" args="pub /vehicle1/SIM/ResetVehiclePose geometry_msgs/Pose '{position: {x: 0, y: -52, z: 0},orientation: { w: 1}}'"/>
+    <node pkg="rostopic" type="rostopic" name="posereset" args="pub /vehicle1/SIM/ResetVehiclePose geometry_msgs/Pose '{position: {x: 1000, y: 948, z: 0},orientation: { w: 1}}'"/>
   </group>
 </launch>
