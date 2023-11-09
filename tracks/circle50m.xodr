@@ -14,7 +14,7 @@
 *   Daniel Heß
 ********************************************************************************
 -->
-<OpenDRIVE><header date="2019-11-21" east="0" maxJunc="0" maxPrg="0" maxRoad="0" name="" north="0" originLat="0" originLong="0" revMajor="1" revMinor="4" south="0" version="1.00" west="0" />
+<OpenDRIVE><header date="2019-11-21" east="200" maxJunc="0" maxPrg="0" maxRoad="0" name="" north="0" originLat="0" originLong="0" revMajor="1" revMinor="4" south="0" version="1.00" west="0" />
 <road id="1" junction="-1" length="314.159265" name="">
     <link>
         <predecessor contactPoint="start" elementId="1" elementType="road" />
