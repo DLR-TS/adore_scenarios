@@ -37,7 +37,7 @@
     <param name="PARAMS/Vehicle/c" value="0.0" type="double" />
     <param name="PARAMS/Vehicle/d" value="0.0" type="double" />
     <param name="PARAMS/Vehicle/bodyWidth" value="0.5" type="double" />  
-    <node name="pmodel" pkg="adore_if_ros" type="adore_vehiclemodel_node" cwd="ROS_HOME"/>
+    <node name="pmodel" pkg="adore_if_ros" type="adore_vehicle_model_node" cwd="ROS_HOME"/>
     <node pkg="rostopic" type="rostopic" name="posereset" args="pub /pedestrian0/SIM/ResetVehiclePose geometry_msgs/Pose '{position: {x: 666, y: 150, z: 0},orientation: { w: 1}}'"/>
     <!-- trigger: start walking when vehicle is near intersection -->
     <node pkg="topic_tools" type="transform" name="pedestrian_trigger" args="/vehicle0/odom /pedestrian0/SIM/ResetVehicleTwist geometry_msgs/Twist 'geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=2 if m.pose.pose.position.x>666 else 0, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3( x= 0.0, y= 0.0, z= 0.0))' --import geometry_msgs std_msgs"/>
